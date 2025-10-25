@@ -1,0 +1,207 @@
+{
+  "name": "Automagic Post Creator v2",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "triggerAtMinute": 28
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "99d3664d-e6ad-42da-9270-14f53d2bff12",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gemma3:4b",
+          "mode": "list",
+          "cachedResultName": "gemma3:4b"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Read the following article summary.\n\n* Identify the main arguments, claims, and assumptions presented.\n* Write a blog post that offers thoughtful counterpoints to each major claim.\n* Use wit, criticism, and playful “roasting” to highlight the article’s flaws, contradictions, or questionable logic.\n* Be entertaining, but keep your response intelligent, and insightful.\n* Support your positions with facts, examples, and clever commentary.\n* Be sarcastic.\n* Make it SEO friendly.\n* Only tell things you know for a fact, no rumors or speculation unless it's for the sake of the bit/for the sake of sarcasm.\n* Only output the article, no title and don't tell me anything\n* Do not say anything along the lines of \"here's the article\", \"here's the blog post\", etc.\n* No quotes around the article\n\nHere is the article to base off of:\n\nTitle: \"{{ $json.title }}\"\n\nSummary: \"\"\"\n{{ $json.contentSnippet }}\n\"\"\""
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.ollama",
+      "typeVersion": 1,
+      "position": [
+        384,
+        240
+      ],
+      "id": "cc6cc528-4b74-479a-98b2-36dff88adb5d",
+      "name": "Message a model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "6xxwBAcxNqge4RCI",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "llama3.2:3b",
+          "mode": "list",
+          "cachedResultName": "llama3.2:3b"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Make a sarcastic, snarky title based on the following article. Output one title, and only output the one title. Make it VERY SEO friendly. No quotation marks.:\n```\n{{ $json.content }}\n```"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.ollama",
+      "typeVersion": 1,
+      "position": [
+        656,
+        -144
+      ],
+      "id": "644eb0f1-ec87-4784-bb10-10e86f0f2af4",
+      "name": "Message a model1",
+      "credentials": {
+        "ollamaApi": {
+          "id": "6xxwBAcxNqge4RCI",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "title": "={{ $json.content }}",
+        "additionalFields": {
+          "content": "={{ $('Message a model').item.json.content }}",
+          "status": "publish"
+        }
+      },
+      "type": "n8n-nodes-base.wordpress",
+      "typeVersion": 1,
+      "position": [
+        912,
+        0
+      ],
+      "id": "da1c0c90-658d-4480-813d-90587d23cee1",
+      "name": "Create a post",
+      "credentials": {
+        "wordpressApi": {
+          "id": "eHC1gTRmYWWA2dHa",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -16,
+        192
+      ],
+      "id": "b354bbe0-eaf2-4ee2-850c-41020dfa5032",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://rss.app/feeds/BHRXNpB6O7denkNN.xml",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        -16
+      ],
+      "id": "72504640-f0ca-4e12-a24a-6c6d8ac9c5d3",
+      "name": "RSS Read"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Message a model1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model1": {
+      "main": [
+        [
+          {
+            "node": "Create a post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0a6af347-df70-4584-906e-eb530d59412d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3e5607228a00db9f4dfcd5477544ccb5ce029a7bfa9a251421811a1296bf06a0"
+  },
+  "id": "fEUIEMNiIWIqDePZ",
+  "tags": []
+}
