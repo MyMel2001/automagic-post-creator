@@ -65,7 +65,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Make a sarcastic, snarky title based on the following article. Output one title, and only output the one title. Make it VERY SEO friendly. No quotation marks.:\n```\n{{ $json.content }}\n```"
+              "content": "=Make a sarcastic, snarky title based on the following article. Output one title, and only output the one title. No quotation marks around the title, use spaces to seperate words and not symbols such as dashes:\n```\n{{ $json.content }}\n```"
             }
           ]
         },
@@ -197,7 +197,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "0a6af347-df70-4584-906e-eb530d59412d",
+  "versionId": "b1f999dd-215f-46a6-a7f2-c592dd784a9a",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "3e5607228a00db9f4dfcd5477544ccb5ce029a7bfa9a251421811a1296bf06a0"
