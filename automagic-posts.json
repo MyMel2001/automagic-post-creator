@@ -6,7 +6,7 @@
         "rule": {
           "interval": [
             {
-              "field": "hours",
+              "field": "weeks",
               "triggerAtMinute": 28
             }
           ]
@@ -197,7 +197,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e8fb843e-cfa0-450a-ad85-510ea7f3a4d0",
+  "versionId": "bc49ee91-bd2b-408f-ab9d-f882f7ba7a6e",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "17af48f7d4786e45d43ddbd3b6d9d78387631f61a634111d989e044e9dc1c2d9"
