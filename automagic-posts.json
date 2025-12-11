@@ -15,19 +15,19 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        0,
-        0
+        -656,
+        144
       ],
-      "id": "99d3664d-e6ad-42da-9270-14f53d2bff12",
+      "id": "16ecc84e-6d2c-4dff-91b7-2e5d70443011",
       "name": "Schedule Trigger"
     },
     {
       "parameters": {
         "modelId": {
           "__rl": true,
-          "value": "gemma3:4b",
+          "value": "gpt-oss:120b-cloud",
           "mode": "list",
-          "cachedResultName": "gemma3:4b"
+          "cachedResultName": "gpt-oss:120b-cloud"
         },
         "messages": {
           "values": [
@@ -42,14 +42,14 @@
       "type": "@n8n/n8n-nodes-langchain.ollama",
       "typeVersion": 1,
       "position": [
-        384,
-        240
+        -272,
+        384
       ],
-      "id": "cc6cc528-4b74-479a-98b2-36dff88adb5d",
+      "id": "2664ad31-cd9b-4890-be27-bf03febb4875",
       "name": "Message a model",
       "credentials": {
         "ollamaApi": {
-          "id": "6xxwBAcxNqge4RCI",
+          "id": "BTqOWI5NyJb472bM",
           "name": "Ollama account"
         }
       }
@@ -58,9 +58,9 @@
       "parameters": {
         "modelId": {
           "__rl": true,
-          "value": "llama3.2:3b",
+          "value": "gpt-oss:20b-cloud",
           "mode": "list",
-          "cachedResultName": "llama3.2:3b"
+          "cachedResultName": "gpt-oss:20b-cloud"
         },
         "messages": {
           "values": [
@@ -74,14 +74,14 @@
       "type": "@n8n/n8n-nodes-langchain.ollama",
       "typeVersion": 1,
       "position": [
-        656,
-        -144
+        0,
+        0
       ],
-      "id": "644eb0f1-ec87-4784-bb10-10e86f0f2af4",
+      "id": "2bc0fc8c-062f-48a1-9e8a-4a2b84866b05",
       "name": "Message a model1",
       "credentials": {
         "ollamaApi": {
-          "id": "6xxwBAcxNqge4RCI",
+          "id": "BTqOWI5NyJb472bM",
           "name": "Ollama account"
         }
       }
@@ -97,14 +97,14 @@
       "type": "n8n-nodes-base.wordpress",
       "typeVersion": 1,
       "position": [
-        912,
-        0
+        256,
+        144
       ],
-      "id": "da1c0c90-658d-4480-813d-90587d23cee1",
+      "id": "ab04c7a0-42c2-46e0-b3b0-e6a83b39ed0e",
       "name": "Create a post",
       "credentials": {
         "wordpressApi": {
-          "id": "eHC1gTRmYWWA2dHa",
+          "id": "RhUYtIuXZMUzR4Sw",
           "name": "Wordpress account"
         }
       }
@@ -114,24 +114,24 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -16,
-        192
+        -672,
+        336
       ],
-      "id": "b354bbe0-eaf2-4ee2-850c-41020dfa5032",
+      "id": "4a9d629c-fc79-4c9a-9b32-24b077a9f2f3",
       "name": "When clicking ‘Execute workflow’"
     },
     {
       "parameters": {
-        "url": "https://rss.app/feeds/BHRXNpB6O7denkNN.xml",
+        "url": "https://www.theverge.com/rss/index.xml",
         "options": {}
       },
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
       "position": [
-        240,
-        -16
+        -416,
+        128
       ],
-      "id": "72504640-f0ca-4e12-a24a-6c6d8ac9c5d3",
+      "id": "c0b531e5-2244-424d-acca-c5e33d27283b",
       "name": "RSS Read"
     }
   ],
@@ -193,15 +193,15 @@
       ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "b1f999dd-215f-46a6-a7f2-c592dd784a9a",
+  "versionId": "e8fb843e-cfa0-450a-ad85-510ea7f3a4d0",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "3e5607228a00db9f4dfcd5477544ccb5ce029a7bfa9a251421811a1296bf06a0"
+    "instanceId": "17af48f7d4786e45d43ddbd3b6d9d78387631f61a634111d989e044e9dc1c2d9"
   },
-  "id": "fEUIEMNiIWIqDePZ",
+  "id": "4yGlz2JUQE6GCjY3",
   "tags": []
 }
