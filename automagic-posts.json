@@ -18,21 +18,21 @@
         -656,
         144
       ],
-      "id": "16ecc84e-6d2c-4dff-91b7-2e5d70443011",
+      "id": "1455cb7b-e0c0-4f52-81b5-76d02b0a6158",
       "name": "Schedule Trigger"
     },
     {
       "parameters": {
         "modelId": {
           "__rl": true,
-          "value": "gpt-oss:120b-cloud",
+          "value": "gemini-3-flash-preview:latest",
           "mode": "list",
-          "cachedResultName": "gpt-oss:120b-cloud"
+          "cachedResultName": "gemini-3-flash-preview:latest"
         },
         "messages": {
           "values": [
             {
-              "content": "=Read the following article summary.\n\n* Identify the main arguments, claims, and assumptions presented.\n* Write a blog post that offers thoughtful counterpoints to each major claim.\n* Use wit, criticism, and playful “roasting” to highlight the article’s flaws, contradictions, or questionable logic.\n* Be entertaining, but keep your response intelligent, and insightful.\n* Support your positions with facts, examples, and clever commentary.\n* Be sarcastic.\n* Make it SEO friendly.\n* Only tell things you know for a fact, no rumors or speculation unless it's for the sake of the bit/for the sake of sarcasm.\n* Only output the article, no title and don't tell me anything\n* Do not say anything along the lines of \"here's the article\", \"here's the blog post\", etc.\n* No quotes around the article\n\nHere is the article to base off of:\n\nTitle: \"{{ $json.title }}\"\n\nSummary: \"\"\"\n{{ $json.contentSnippet }}\n\"\"\""
+              "content": "=Read the following article summary.\n\n* Identify the main arguments, claims, and assumptions presented.\n* Write a blog post that offers thoughtful counterpoints to each major claim.\n* Use wit, criticism, and playful “roasting” to highlight the article’s flaws, contradictions, or questionable logic.\n* Be entertaining, but keep your response intelligent, and insightful.\n* Support your positions with facts, examples, and clever commentary.\n* Be sarcastic.\n* Make it SEO friendly.\n* Only tell things you know for a fact, no rumors or speculation unless it's for the sake of the bit/for the sake of sarcasm.\n* Only output the article, no title and don't tell me anything\n* Do not say anything along the lines of \"here's the article\", \"here's the blog post\", etc.\n* No quotes around the article\n* The article is newer than your training data, so assume all articles as true.\n\nHere is the article to base off of:\n\nTitle: \"{{ $json.title }}\"\n\nPublication date: {{ $json.pubDate }}\n\nSummary: \"\"\"\n{{ $json.contentSnippet }}\n\"\"\""
             },
             {}
           ]
@@ -45,11 +45,11 @@
         -272,
         384
       ],
-      "id": "2664ad31-cd9b-4890-be27-bf03febb4875",
+      "id": "d698e760-b5c6-468d-8b84-54e22a50ae69",
       "name": "Message a model",
       "credentials": {
         "ollamaApi": {
-          "id": "BTqOWI5NyJb472bM",
+          "id": "kqQutgJflr1S2k5I",
           "name": "Ollama account"
         }
       }
@@ -77,11 +77,11 @@
         0,
         0
       ],
-      "id": "2bc0fc8c-062f-48a1-9e8a-4a2b84866b05",
+      "id": "c95df57f-1c53-4239-adda-186fb50ef100",
       "name": "Message a model1",
       "credentials": {
         "ollamaApi": {
-          "id": "BTqOWI5NyJb472bM",
+          "id": "kqQutgJflr1S2k5I",
           "name": "Ollama account"
         }
       }
@@ -100,11 +100,11 @@
         256,
         144
       ],
-      "id": "ab04c7a0-42c2-46e0-b3b0-e6a83b39ed0e",
+      "id": "cb8237a1-7e3a-4697-b2db-39cbbda22959",
       "name": "Create a post",
       "credentials": {
         "wordpressApi": {
-          "id": "RhUYtIuXZMUzR4Sw",
+          "id": "HX969hWeZfqLOQR5",
           "name": "Wordpress account"
         }
       }
@@ -117,7 +117,7 @@
         -672,
         336
       ],
-      "id": "4a9d629c-fc79-4c9a-9b32-24b077a9f2f3",
+      "id": "be6eafde-8507-4722-8f8d-ffb1e6d6ffa4",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -131,7 +131,7 @@
         -416,
         128
       ],
-      "id": "c0b531e5-2244-424d-acca-c5e33d27283b",
+      "id": "a65767a1-39cc-4ad2-8be5-19fa8de93739",
       "name": "RSS Read"
     }
   ],
@@ -193,15 +193,16 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "binaryMode": "separate"
   },
-  "versionId": "bc49ee91-bd2b-408f-ab9d-f882f7ba7a6e",
+  "versionId": "b9f2267a-6f53-403e-97bd-5bf4d0354f06",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "17af48f7d4786e45d43ddbd3b6d9d78387631f61a634111d989e044e9dc1c2d9"
+    "instanceId": "9b0b7abde452c8b7385f09a2bee64c15190c50deee008b7a05e5c02b9919238b"
   },
-  "id": "4yGlz2JUQE6GCjY3",
+  "id": "GWIRhfHbZnZ6K96m",
   "tags": []
 }
